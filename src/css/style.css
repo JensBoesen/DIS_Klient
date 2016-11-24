@@ -1,0 +1,51 @@
+.loginstyle {
+    width: 60%;
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+
+    transform: translate(-50%, -50%);
+
+}
+
+.logostyle{
+    width: 7%;
+
+    position: fixed;
+
+    top: 12%;
+    left:5%;
+    margin-right: 1%;
+
+    transform: translate(-50%, -50%);
+
+}
+
+.navbarstyle{
+
+    width: 7%;
+
+    position: fixed;
+
+    top:35%;
+    left:8%;
+    margin-right: 1%;
+
+    transform: translate(-50%, -50%);
+
+}
+
+.frame{
+
+    position: fixed;
+    width: 35%;
+    padding: 1%;
+    border: 5px solid gray;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

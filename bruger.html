@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/style.css">
+
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logostyle">
+
+        <img style="width:200%; height: 200%;" src="billeder/logo.png"/>
+
+    </div>
+
+
+    <div class="navbarstyle">
+
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><a href="bruger.html">Hjem</a></li>
+            <li role="presentation"><a href="brugerSkema.html">Skema</a></li>
+            <li role="presentation"><a href="brugerAnd.html">Anmeldelser</a></li>
+            <li role="presentation"><a href="login.html">Log ud</a></li>
+        </ul>
+
+    </div>
+
+
+    <div class="frame">
+
+
+        <div class="slideshow" style="max-width: 500px">
+            <img class="mySlides" src="billeder/flintholm.jpg" style="width: 100%">
+            <img class="mySlides" src="billeder/kilen.jpg" style="width: 100%">
+            <img class="mySlides" src="billeder/solbjergplads.jpg" style="width: 100%">
+
+
+            <script>
+                var myIndex = 0;
+                carousel();
+
+                function carousel() {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    myIndex++;
+                    if (myIndex > x.length) {
+                        myIndex = 1
+                    }
+                    x[myIndex - 1].style.display = "block";
+                    setTimeout(carousel, 2000); // Change image every 2 seconds
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+<script src="lib/js/jquery-3.1.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+
+</body>
+</html>
