@@ -49,3 +49,34 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.lectureframe {
+
+    position: fixed;
+    width: 65%;
+    padding: 1%;
+    border: 5px solid gray;
+    margin: 0;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+.headers {
+
+    position: fixed;
+
+    width: 65%;
+    top:10%;
+    left: 20%;
+}
+
+.dropdownbox {
+
+    position: fixed;
+
+    width: 10%;
+    top:30%;
+    left: 20%;
+    z-index: 2;
+}

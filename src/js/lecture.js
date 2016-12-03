@@ -1,28 +1,53 @@
 $(document).ready(function () {
 
     //Fires on page-load
-    SDK.lecture.getAll(function(err, data){
-        if(err) throw err;
+    SDK.Course.getById(function (err, courses) {
+        if (err) throw err;
 
-        var decrypted = encryptDecrypt(data);
-        decrypted = JSON.parse(decrypted);
+        /* var decrypted = encryptDecrypt(data);
+         decrypted = JSON.parse(decrypted);
+         */
+
+        var $dropdownCourse = $("#dropdownCourse");
+        courses.forEach(function (course) {
+
+            $dropdownCourse.append(
+                "<button data-course=" + course.displaytext + ">" + "<li>" + course.code + "</li>" + "</button>");
+            console.log(course);
+
+        });
 
 
-        var $booksTableBody = $("#booksTableBody");
-        decrypted.forEach(function (book, i) {
+        $dropdownCourse.on('click', "button", function () {
+            var course = $(this).data("course");
+            console.log(course)
+            // console.log(event);
+            SDK.Lectures.getById(course, function (err, data) {
+                if (err) throw err;
 
-            $booksTableBody.append(
-                "<tr>" +
-                "<td>" + book.title + "</td>" +
-                "<td>" + book.author + "</td>" +
-                "<td>" + book.version + "</td>" +
-                "<td>" + book.priceAB + "</td>" +
-                "<td>" + book.priceSAXO + "</td>" +
-                "<td>" + book.priceCDON + "</td>" +
-                "<td>" + book.ISBN + "</td>" +
-                "</tr>");
+                console.log(data);
+
+                var $lecturesTableBody = $("#lecturesTableBody");
+                data.forEach(function (lecture) {
+
+                    $lecturesTableBody.append(
+                        "<tr>" +
+                        "<td>" + lecture.id + "</td>" +
+                        "<td>" + lecture.type + "</td>" +
+                        "<td>" + lecture.description + "</td>" +
+                        "<td>" + lecture.startDate + "</td>" +
+                        "<td>" + lecture.endDate + "</td>" +
+                        "<td>" + "<button> </button>" + "</td>" +
+                        "</tr>");
+
+
+                });
+
+
+            });
         });
 
     });
-
 });
+
+

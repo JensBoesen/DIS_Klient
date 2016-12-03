@@ -20,38 +20,37 @@ var SDK = {
         });
     },
 
-    lecture: {
-        getAll: function (cb) {
-            SDK.request({method: "GET", url: "/lecture", headers: {filter: {include: ["authors", "publisher"]}}}, cb);
-        },
-        create: function (data, cb) {
-            SDK.request({method: "POST", url: "/lecture", data: data, headers: {authorization: SDK.Storage.load("tokenId")}}, cb);
+    Lectures: {
+        getById: function (id, cb) {
+            SDK.request({
+                method: "GET",
+                url: "/lecture/" + id
+
+            }, cb);
         }
     },
 
-    User: {
-        getAll: function (cb) {
-            SDK.request({method: "GET", url: "/staffs"}, cb);
-        },
-        current:function () {
-            return SDK.Storage.load("user");
+    Course: {
+        getById: function (cb) {
+
+            $.ajax({
+                url: SDK.serverURL + "/course/" + SDK.Storage.load("tokenId"),
+                method: "GET",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+
+                    cb(null,data)
+                }
+            });
+
         }
     },
 
-    Publisher: {
-        getAll: function (cb) {
-            SDK.request({method: "GET", url: "/publishers"}, cb);
-        }
-    },
 
-    Author: {
-        getAll: function (cb) {
-            SDK.request({method: "GET", url: "/authors"}, cb);
-        }
-    },
 
     logOut:function() {
-        SDK.Storage.remove("cbsMail");
+        SDK.Storage.remove("tokenId");
         SDK.Storage.remove("password");
         SDK.Storage.remove("type");
     },
@@ -69,10 +68,10 @@ var SDK = {
             //On login-error
             if (err) return cb(err);
 
-            SDK.Storage.persist("cbsMail", data.id);
-           /* SDK.Storage.persist("userId", data.userId);
-            SDK.Storage.persist("user", data.user);
-            */
+            SDK.Storage.persist("tokenId", data.id);
+            SDK.Storage.persist("type", data.type);
+            //SDK.Storage.persist("user", data.user);
+
             cb(null, data);
 
         });
