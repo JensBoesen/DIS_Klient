@@ -52,23 +52,24 @@
 
 .lectureframe {
 
-    position: fixed;
-    width: 65%;
+    width:65%;
     padding: 1%;
     border: 5px solid gray;
-    margin: 0;
-    top: 50%;
-    left: 52%;
-    transform: translate(-50%, -50%);
+    margin-top: 0%;
+    margin-left: 19.5%;
+
+}
+
+.tablescroll{
+
+    overflow-y:scroll;
 }
 
 .headers {
 
-    position: fixed;
-
     width: 65%;
-    top:10%;
-    left: 20%;
+    margin-top: 18%;
+    margin-left:21%;
 }
 
 .dropdownbox {

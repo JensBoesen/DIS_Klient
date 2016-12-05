@@ -52,7 +52,7 @@ var SDK = {
     logOut:function() {
         SDK.Storage.remove("tokenId");
         SDK.Storage.remove("password");
-        SDK.Storage.remove("type");
+        SDK.Storage.remove("lecture.id")
     },
 
     login: function (cbsMail, password, cb) {
@@ -70,7 +70,7 @@ var SDK = {
 
             SDK.Storage.persist("tokenId", data.id);
             SDK.Storage.persist("type", data.type);
-            //SDK.Storage.persist("user", data.user);
+
 
             cb(null, data);
 
@@ -78,7 +78,7 @@ var SDK = {
     },
 
     Storage: {
-        prefix: "BookStoreSDK",
+        prefix: "EvaluationSDK",
         persist: function (key, value) {
             window.localStorage.setItem(this.prefix + key, (typeof value === 'object') ? JSON.stringify(value) : value)
         },

@@ -20,15 +20,19 @@ $(document).ready(function () {
 
         $dropdownCourse.on('click', "button", function () {
             var course = $(this).data("course");
-            console.log(course)
+            console.log(course);
             // console.log(event);
             SDK.Lectures.getById(course, function (err, data) {
                 if (err) throw err;
 
                 console.log(data);
 
+                $("#lecturesTableBody").empty();
+
                 var $lecturesTableBody = $("#lecturesTableBody");
                 data.forEach(function (lecture) {
+
+
 
                     $lecturesTableBody.append(
                         "<tr>" +
@@ -37,9 +41,13 @@ $(document).ready(function () {
                         "<td>" + lecture.description + "</td>" +
                         "<td>" + lecture.startDate + "</td>" +
                         "<td>" + lecture.endDate + "</td>" +
-                        "<td>" + "<button> </button>" + "</td>" +
+                        "<td>" + "<button id='andmeldelse'> Anmeldelser </button>" + "</td>" +
                         "</tr>");
 
+                    $('button[id^="andmeldelse"]').click(function(){
+                        SDK.Storage.persist(lecture.id);
+                        window.location.href='andmeldelser.html';
+                    });
 
                 });
 
