@@ -4,7 +4,7 @@
 
     <link rel="stylesheet" href="lib/css/bootstrap.css">
     <link rel="stylesheet" href="src/css/style.css">
-
+    <link rel="stylesheet" href="billeder">
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -19,29 +19,47 @@
 
     </div>
 
+    <div class="container">
+        <div class="navbarstyle">
 
-    <div class="navbarstyle">
-
-        <ul class="nav nav-pills nav-stacked">
-            <li role="presentation"><a href="bruger.html">Hjem</a></li>
-            <script>
-                SDK.Storage.remove("lectureID");
-            </script>
-            <li role="presentation"><a href="brugerSkema.html">Skema</a></li>
-            <li role="presentation"><a href="brugerAnd.html">Anmeldelser</a></li>
-            <li role="presentation"><a href="login.html">Log ud</a></li>
-        </ul>
-
-    </div>
-
-
-
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="bruger.html">Hjem</a></li>
+                <li role="presentation"><a href="brugerSkema.html">Skema</a></li>
+                <li role="presentation" class="active"><a href="brugerAnd.html">Anmeldelser</a></li>
+                <li role="presentation"><a href="login.html">Log ud</a></li>
+            </ul>
         </div>
     </div>
 </div>
 
+<div class="container">
+
+    <div class="headers">
+        <div class="page-header">
+            <h1>Anmeldeleser</h1>
+        </div>
+    </div>
+
+    <div class="lectureframe">
+        <table class="table">
+
+            <thead>
+            <th>Leksions ID</th>
+            <th>Rating</th>
+            <th>Kommentar</th>
+            </thead>
+
+        </table>
+    </div>
+
+</div>
+
+
 <script src="lib/js/jquery-3.1.1.js"></script>
 <script src="lib/js/bootstrap.js"></script>
+<script src="src/js/review.js"></script>
+<script src="src/js/sdk.js"></script>
+
 
 </body>
 </html>

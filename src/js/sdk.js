@@ -20,9 +20,9 @@ var SDK = {
         });
     },
 
-    Review: {
-        getAll: function (id, cb) {
-            SDK.request({method: "GET", url: "/review", headers: {filter: {include: ["id", "userId", "lectureId", "rating", "comment", "isDelted"]}}}, cb);
+    UserReview: {
+        getAll: function (cb) {
+            SDK.request({method: "GET", url: "/review/user/" + SDK.Storage.load("tokenId"), headers: {filter: {include: ["id", "userId", "lectureId", "rating", "comment", "isDelted"]}}}, cb);
         },
         create: function (data, cb) {
             SDK.request({method: "POST", url: "/review", data: data, headers: {authorization: SDK.Storage.load("tokenId")}}, cb);
