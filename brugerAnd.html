@@ -3,8 +3,6 @@
 <head>
 
     <link rel="stylesheet" href="lib/css/bootstrap.css">
-    <link rel="stylesheet" href="lib/css/bootstrap.lumen.min.css">
-    <link rel="stylesheet" href="src/css/sticky-footer.css">
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="billeder">
 
@@ -36,15 +34,35 @@
 
 <div class="container">
 
-    <div class="loginstyle">
+    <div class="headers">
         <div class="page-header">
-            <h1>anmedeleser</h1>
+            <h1>Anmeldeleser</h1>
         </div>
     </div>
+
+    <div class="lectureframe">
+        <table class="table">
+
+            <thead>
+            <th>Leksions ID</th>
+            <th>Rating</th>
+            <th>Kommentar</th>
+            </thead>
+            <tbody id="reviewBody">
+
+            </tbody>
+
+        </table>
+    </div>
+
 </div>
 
 
 <script src="lib/js/jquery-3.1.1.js"></script>
 <script src="lib/js/bootstrap.js"></script>
+<script src="src/js/review.js"></script>
+<script src="src/js/sdk.js"></script>
+
+
 </body>
 </html>

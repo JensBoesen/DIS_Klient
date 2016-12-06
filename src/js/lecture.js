@@ -45,8 +45,9 @@ $(document).ready(function () {
                         "</tr>");
 
                     $('button[id^="andmeldelse"]').click(function(){
-                        SDK.Storage.persist(lecture.id);
+                        SDK.Storage.persist("lectureId", lecture.id);
                         window.location.href='andmeldelser.html';
+                        andmeldelse.close();
                     });
 
                 });

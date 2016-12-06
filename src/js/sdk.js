@@ -20,6 +20,16 @@ var SDK = {
         });
     },
 
+    Review: {
+        getAll: function (id, cb) {
+            SDK.request({method: "GET", url: "/review", headers: {filter: {include: ["id", "userId", "lectureId", "rating", "comment", "isDelted"]}}}, cb);
+        },
+        create: function (data, cb) {
+            SDK.request({method: "POST", url: "/review", data: data, headers: {authorization: SDK.Storage.load("tokenId")}}, cb);
+        }
+    },
+
+
     Lectures: {
         getById: function (id, cb) {
             SDK.request({
@@ -52,7 +62,7 @@ var SDK = {
     logOut:function() {
         SDK.Storage.remove("tokenId");
         SDK.Storage.remove("password");
-        SDK.Storage.remove("lecture.id")
+        SDK.Storage.remove("lectureId");
     },
 
     login: function (cbsMail, password, cb) {
