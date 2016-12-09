@@ -22,16 +22,16 @@ var SDK = {
 
     UserReview: {
         getAll: function (cb) {
-            SDK.request({method: "GET", url: "/review/user/" + SDK.Storage.load("tokenId"), headers: {filter: {include: ["id", "userId", "lectureId", "rating", "comment", "isDelted"]}}}, cb);
+            SDK.request({method: "GET", url: "/review/user/" + SDK.Storage.load("tokenId"), headers: {filter: {include: ["id", "userId", "lectureId", "rating", "comment", "isDeleted"]}}}, cb);
         },
     },
 
     LectureReview: {
         getAll: function (cb) {
-            SDK.request({method: "GET", url: "/review/lecture/" + SDK.Storage.load("lectureId"), headers: {filter: {include: ["id", "userId", "lectureId", "rating", "comment", "isDelted"]}}}, cb);
+            SDK.request({method: "GET", url: "/review/lecture/" + SDK.Storage.load("lectureId"), headers: {filter: {include: ["id", "userId", "lectureId", "rating", "comment", "isDeleted"]}}}, cb);
         },
         create: function (data, cb) {
-            SDK.request({method: "POST", url: "/review", data: data, headers: {authorization: SDK.Storage.load("tokenId")}}, cb);
+            SDK.request({method: "POST", url:"/" + SDK.Storage.load("type") + "/review/", data: data, }, cb);
         }
     },
 
@@ -43,6 +43,26 @@ var SDK = {
                 url: "/lecture/" + id
 
             }, cb);
+        }
+    },
+
+    DeleteLectures: {
+        delete: function (data, cb) {
+            //SDK.request({ method: "DELETE", url:"/student/deletereview", data:data}, cb);
+            $.ajax({
+                type: "DELETE",
+                url: SDK.serverURL + "/student/deletereview",
+                data: {
+                    id: 10,
+                    userId: 8
+                },
+                success: function(res){
+                    location.reload()
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            })
         }
     },
 

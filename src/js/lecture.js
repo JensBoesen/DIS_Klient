@@ -33,7 +33,6 @@ $(document).ready(function () {
                 data.forEach(function (lecture) {
 
 
-
                     $lecturesTableBody.append(
                         "<tr>" +
                         "<td>" + lecture.id + "</td>" +
@@ -44,19 +43,17 @@ $(document).ready(function () {
                         "<td>" + "<button id='andmeldelse'> Anmeldelser </button>" + "</td>" +
                         "</tr>");
 
-                    $('button[id^="andmeldelse"]').click(function(){
+                    $('button[id^="andmeldelse"]').click(function () {
                         SDK.Storage.persist("lectureId", lecture.id);
-                        window.location.href='andmeldelser.html';
-                        andmeldelse.close();
+                        window.location.href = 'andmeldelser.html';
+                        andmeldelse.close("andmeldelse");
                     });
 
+
+
                 });
-
-
             });
-        });
 
+        });
     });
 });
-
-

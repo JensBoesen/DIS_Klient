@@ -10,6 +10,42 @@
     <title>Title</title>
 </head>
 <body>
+<!-- New Book Modal -->
+<div class="modal fade" id="createReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Opret en andmeldelse</h4>
+                <div class="modal-body">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Rating</label>
+                            <input class="form-control" id="rating" type="text">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Kommentar</label>
+                            <input class="form-control" id="comment" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Luk</button>
+                <button type="button" class="btn btn-success" id="createReviewButton">Opret</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
 
 <div class="container">
 
@@ -25,7 +61,7 @@
             <ul class="nav nav-pills nav-stacked">
                 <li role="presentation"><a href="bruger.html">Hjem</a></li>
                 <li role="presentation"><a href="brugerSkema.html">Skema</a></li>
-                <li role="presentation" class="active"><a href="brugerAnd.html">Anmeldelser</a></li>
+                <li role="presentation"><a href="brugerAnd.html">Anmeldelser</a></li>
                 <li role="presentation"><a href="login.html">Log ud</a></li>
             </ul>
         </div>
@@ -51,7 +87,13 @@
 
             </tbody>
         </table>
+
+
     </div>
+
+    <button class="btn btn-success" id="doReview"> Opret andmeldelse</button>
+
+
 
 </div>
 
@@ -61,6 +103,23 @@
 <script src="src/js/userReview.js"></script>
 <script src="src/js/sdk.js"></script>
 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        getAllReviews();
+
+
+        //Create add button in table
+        $("#doReview").on("click", function () {
+            $('#createReview').modal('show');
+        });
+
+        //Create rev
+        $("#createReviewButton").on("click", function () {
+            createReview();
+        })
+    });
+</script>
 
 </body>
 </html>

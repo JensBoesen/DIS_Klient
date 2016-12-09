@@ -17,10 +17,30 @@ $(document).ready(function () {
                 "<td>" + review.lectureId + "</td>" +
                 "<td>" + review.rating + "</td>" +
                 "<td>" + review.comment + "</td>" +
-
+                "<td>" + "<button class='delete' data-review=" + review.id + "> Slet </button>" + "</td>" +
                 "</tr>");
+
+
         });
     });
+
+
+    $('#reviewBody').on("click",".delete",function () {
+        var reviewId = $(this).data("review");
+        var deleteReview = {
+            id: 10,
+            userId: 8
+        };
+
+        SDK.DeleteLectures.delete(reviewId, function (err, reviewId) {
+            if (err) throw err;
+            console.log("delete");
+        });
+
+
+    });
+
+
 });
 
 
