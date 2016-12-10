@@ -46,23 +46,15 @@ var SDK = {
         }
     },
 
-    DeleteLectures: {
-        delete: function (data, cb) {
-            //SDK.request({ method: "DELETE", url:"/student/deletereview", data:data}, cb);
-            $.ajax({
-                type: "DELETE",
-                url: SDK.serverURL + "/student/deletereview",
+    DeleteReview: {
+        deleteReview: function (data, cb) {
+            SDK.request({
                 data: {
-                    id: 10,
-                    userId: 8
+                    id: data
                 },
-                success: function(res){
-                    location.reload()
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            })
+                method: "DELETE",
+                url: "/student/deletereview"
+            }, cb);
         }
     },
 

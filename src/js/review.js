@@ -28,12 +28,11 @@ $(document).ready(function () {
     $('#reviewBody').on("click",".delete",function () {
         var reviewId = $(this).data("review");
         var deleteReview = {
-            id: 10,
-            userId: 8
+            reviewId: reviewId
         };
 
-        SDK.DeleteLectures.delete(reviewId, function (err, reviewId) {
-            if (err) throw err;
+        SDK.DeleteReview.deleteReview(reviewId, function (err, reviewId) {
+            location.reload();
             console.log("delete");
         });
 
