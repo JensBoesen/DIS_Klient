@@ -16,25 +16,15 @@ $(document).ready(function () {
 
             $("#loginForm").find(".form-group").addClass("has-succes");
 
-            window.location.href="bruger.html";
-
-
-
 
             //Login OK!
-          /*  if (data.type == admin) {
-                $("#loginForm").find(".form-group").addClass("has-success");
-                window.location.href = "admin.html";
+            if (data.type == "student") {
+                window.location.href = "user.html";
 
-            } if (data.type == student) {
-                $("#loginForm").find(".form-group").addClass("has-success");
-                window.location.href = "bruger.html";
-
-            } else {
-                $("#loginForm").find(".form-group").addClass("has-succes");
+            } if (data.type == "teacher") {
                 window.location.href = "teacher.html";
-            }*/
 
+            }
         });
 
     });

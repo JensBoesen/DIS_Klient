@@ -45,7 +45,7 @@ $(document).ready(function () {
 
                     $('button[id^="andmeldelse"]').click(function () {
                         SDK.Storage.persist("lectureId", lecture.id);
-                        window.location.href = 'reviews.html';
+                        window.location.href = 'teacherReview.html';
                         andmeldelse.close("andmeldelse");
                     });
 

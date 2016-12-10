@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="billeder">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logostyle">
+
+        <img style="width:200%; height: 200%;" src="billeder/logo.png"/>
+
+    </div>
+
+    <div class="container">
+        <div class="navbarstyle">
+
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="user.html">Hjem</a></li>
+                <li role="presentation"><a href="userCourse.html">Skema</a></li>
+                <li role="presentation" class="active"><a href="userReview.html">Anmeldelser</a></li>
+                <li role="presentation"><a id="logOut">Log ud</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="headers">
+        <div class="page-header">
+            <h1>Dine anmeldeleser</h1>
+        </div>
+    </div>
+
+    <div class="lectureframe">
+        <table class="table">
+
+            <thead>
+            <th>Leksions ID</th>
+            <th>Rating</th>
+            <th>Kommentar</th>
+            </thead>
+            <tbody id="reviewBody">
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+
+<script src="lib/js/jquery-3.1.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="src/js/review.js"></script>
+<script src="src/js/sdk.js"></script>
+<script src="src/js/logout.js"></script>
+
+
+
+</body>
+</html>
