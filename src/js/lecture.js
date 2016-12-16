@@ -1,13 +1,10 @@
 $(document).ready(function () {
 
-    //Fires on page-load
+    //Her bliver alle fagene hentet ind via SDK
     SDK.Course.getById(function (err, courses) {
         if (err) throw err;
 
-        /* var decrypted = encryptDecrypt(data);
-         decrypted = JSON.parse(decrypted);
-         */
-
+        //Drop down menu bliver fyldt ud
         var $dropdownCourse = $("#dropdownCourse");
         courses.forEach(function (course) {
 
@@ -17,7 +14,7 @@ $(document).ready(function () {
 
         });
 
-
+        //når man har valgt faget vil alle lektionerne blive hentet ind og sat ind i et table
         $dropdownCourse.on('click', "button", function () {
             var course = $(this).data("course");
             console.log(course);
@@ -43,6 +40,7 @@ $(document).ready(function () {
                         "<td>" + "<button id='andmeldelse'> Anmeldelser </button>" + "</td>" +
                         "</tr>");
 
+                    //knap til at sende brugeren videre til anmeldelserne. Bemærk den gemmer det lecture ID man har valgt
                     $('button[id^="andmeldelse"]').click(function () {
                         SDK.Storage.persist("lectureId", lecture.id);
                         window.location.href = 'reviews.html';

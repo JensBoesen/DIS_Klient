@@ -4,7 +4,6 @@ var SDK = {
 
     request: function (options, cb) {
 
-        //Perform XHR
         $.ajax({
             url: SDK.serverURL + options.url,
             method: options.method,
@@ -86,7 +85,7 @@ var SDK = {
 
         login: function (cbsMail, password, cb) {
 
-
+            //Her hashes det salt hashes det password man indtaster 2 gange
             let SALT = "n0zaCTADRUuTb@JUp01n%5@(l@IAaLlZ";
             let passWithSalt = password + SALT;
             let hashedPassWithSalt = md5(passWithSalt);
@@ -121,7 +120,7 @@ var SDK = {
 
 
     },
-
+    //funktion til at gemme data i storage
     Storage: {
         prefix: "EvaluationSDK",
         persist: function (key, value) {
@@ -141,7 +140,7 @@ var SDK = {
         }
     },
 
-    //Kode lånt af Mathias Lund, Nedenstående decrypter password
+    //Kode lånt af Mathias Lund, Nedenstående decryptere
     Decrypt: function (string) {
         var Base64 = {
             _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",

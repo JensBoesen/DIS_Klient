@@ -9,7 +9,6 @@ $(document).ready(function () {
 
         SDK.login(email, pw, function (err, data) {
 
-            //On wrong credentials
             if (err) {
                 return $("#loginForm").find(".form-group").addClass("has-error");
             }
@@ -17,7 +16,7 @@ $(document).ready(function () {
             $("#loginForm").find(".form-group").addClass("has-succes");
 
 
-            //Login OK!
+            //Når informationerne er blevet valideret, bliver man sendt videre til enten student eller teacher.
             if (data.type == "student") {
                 window.location.href = "user.html";
 
